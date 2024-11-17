@@ -1,0 +1,7 @@
+{
+  "name": "parcelas-qr",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
