@@ -1,17 +1,22 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
+    Tus Datos
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  
+  <ion-item>
+    <ion-input label="Nombre" placeholder="Juan Perez"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input label="Email" placeholder="juanperez@gmail.com"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input label="Contraseña" placeholder="********"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input label="Tarjeta de Credito" value="5370 6474 6446 4747" [disabled]="true"></ion-input>
+  </ion-item>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
 </ion-content>

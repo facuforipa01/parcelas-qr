@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { apiService } from '../api.service';
+import { ParcelaI } from '../interfaces/parcela.interface';
 
 @Component({
   selector: 'app-tab1',
@@ -6,7 +8,21 @@ import { Component } from '@angular/core';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
+  parcela: ParcelaI[] = [];
+  constructor(private apiService: apiService) {}
 
-  constructor() {}
-
+  ngOnInit(): void {
+    this.apiService.getAllParcelas().subscribe({
+      next: (response) => {
+        if (response.ok) {
+          this.parcela = response.parcelas.data;
+        } else {
+          console.error('Error en la respuesta:', response.msg);
+        }
+      },
+      error: (err) => {
+        console.error('Error al obtener reservas:', err);
+      },
+    });
+  }
 }
