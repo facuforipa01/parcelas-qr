@@ -1,15 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    Escanea el QR
+    <ion-title>Escanea el QR</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-
-  <ion-button (click)="scanQRCode()">Escanear ahora</ion-button>
-
-  <ion-title size="large">{{code}}</ion-title>
-
-  
-
+<ion-content [fullscreen]="true" class="transparent-content">
+  <ion-button expand="block" (click)="scanQRCode()">Escanear ahora</ion-button>
 </ion-content>
