@@ -5,18 +5,18 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  
-  <ion-item>
-    <ion-input label="Nombre" placeholder="Juan Perez"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-input label="Email" placeholder="juanperez@gmail.com"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-input label="Contraseña" placeholder="********"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-input label="Tarjeta de Credito" value="5370 6474 6446 4747" [disabled]="true"></ion-input>
-  </ion-item>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-input label="Nombre" formControlName="email" id="email" placeholder="Ingrese el usuario"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Contraseña" type="password" formControlName="password" id="password" placeholder="Ingrese contraseña" ></ion-input >
+    </ion-item>
+    <ion-item>
+      <ion-button type="submit">Ingresar</ion-button>
+    </ion-item>
+    
+  </form>
 
-</ion-content>
+
+</ion-content>  

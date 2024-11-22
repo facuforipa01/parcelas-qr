@@ -6,6 +6,7 @@ import { ParcelaI } from '../interfaces/parcela.interface';
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
+  
 })
 export class Tab1Page {
   parcela: ParcelaI[] = [];
@@ -13,11 +14,11 @@ export class Tab1Page {
 
   ngOnInit(): void {
     this.apiService.getAllParcelas().subscribe({
-      next: (response) => {
-        if (response.ok) {
-          this.parcela = response.parcelas.data;
+      next: (result) => {
+        if (result.ok) {
+          this.parcela = result.result.data
         } else {
-          console.error('Error en la respuesta:', response.msg);
+          console.error('Error en la respuesta:', result.msg);
         }
       },
       error: (err) => {

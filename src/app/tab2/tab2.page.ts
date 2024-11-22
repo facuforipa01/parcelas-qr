@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { LoginService } from '../core/services/login.service';
+import { Router } from '@angular/router';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-tab2',
@@ -6,7 +10,34 @@ import { Component } from '@angular/core';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
+  public loginForm: FormGroup;
 
-  constructor() {}
+  constructor(private fb:FormBuilder, private http:HttpClient){
+    this.loginForm = this.fb.group({
+      email: [''],
+      password: [''],
+    })
+  }
 
+  private  readonly loginService = inject(LoginService);
+  private readonly router = inject(Router);
+  
+ 
+  onSubmit(){
+    const loginData = this.loginForm.value;
+    console.log(loginData)
+    this.loginService.login(loginData.email, loginData.password).subscribe({
+      next: (data)=>{
+        console.log('Se logueo')
+        this.router.navigate(['/tabs/tab1'])
+      },
+      error: (e) => {
+        console.log(e)
+      }
+    })
+  }
+
+  login(){
+
+  }
 }

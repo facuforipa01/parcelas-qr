@@ -1,12 +1,7 @@
 import { ParcelaI } from "./parcela.interface";
 
-export interface ResponseI {
+export interface ResponseI<T =any> {
     ok: boolean;
-    parcelas: {
-      data: ParcelaI[];
-      total: number;
-      page: number;
-      limit: number;
-    };
+    result:T;
     msg: string;
   }
