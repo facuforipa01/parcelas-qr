@@ -14,11 +14,12 @@ export class Tab1Page {
 
   ngOnInit(): void {
     this.apiService.getAllParcelas().subscribe({
-      next: (result) => {
-        if (result.ok) {
-          this.parcela = result.result.data
+      next: (response) => {
+        if (response.ok) {
+          console.log(response)
+          this.parcela = response.result.data
         } else {
-          console.error('Error en la respuesta:', result.msg);
+          console.error('Error en la respuesta:', response.msg);
         }
       },
       error: (err) => {

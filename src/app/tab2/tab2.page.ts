@@ -12,24 +12,28 @@ import { HttpClient } from '@angular/common/http';
 export class Tab2Page {
   public loginForm: FormGroup;
 
-  constructor(private fb:FormBuilder, private http:HttpClient){
+  constructor(private fb: FormBuilder, private http: HttpClient) {
     this.loginForm = this.fb.group({
       email: [''],
       password: [''],
     })
   }
 
-  private  readonly loginService = inject(LoginService);
+  private readonly loginService = inject(LoginService);
   private readonly router = inject(Router);
-  
- 
-  onSubmit(){
+
+
+  onSubmit() {
     const loginData = this.loginForm.value;
     console.log(loginData)
     this.loginService.login(loginData.email, loginData.password).subscribe({
-      next: (data)=>{
+      next: (data) => {
         console.log('Se logueo')
         this.router.navigate(['/tabs/tab1'])
+          .then(() => {
+            window.location.reload();
+          });
+
       },
       error: (e) => {
         console.log(e)
@@ -37,7 +41,7 @@ export class Tab2Page {
     })
   }
 
-  login(){
+  login() {
 
   }
 }
