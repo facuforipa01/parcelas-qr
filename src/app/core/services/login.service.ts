@@ -68,6 +68,8 @@ export class LoginService {
     private readonly cookieService = inject(CookieService);
     saveTokenInCookies(data: ResponseI<string>): void {
         console.log(data)
+        console.log(data.msg)
+        localStorage.setItem('userid', data.msg)
         this.cookieService.set(TOKEN, data.result, undefined, '/')
     }
 

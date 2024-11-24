@@ -25,6 +25,7 @@
     "@capacitor/android": "^6.1.2",
     "@capacitor/app": "6.0.1",
     "@capacitor/core": "6.1.2",
+    "@capacitor/geolocation": "^6.0.2",
     "@capacitor/haptics": "6.0.1",
     "@capacitor/keyboard": "6.0.2",
     "@capacitor/status-bar": "6.0.1",
@@ -32,9 +33,9 @@
     "@zxing/browser": "^0.1.5",
     "@zxing/library": "^0.21.3",
     "ionicons": "^7.0.0",
+    "ngx-cookie-service": "^18.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
-    "ngx-cookie-service":"^18.0.0",
     "zone.js": "~0.14.2"
   },
   "devDependencies": {
