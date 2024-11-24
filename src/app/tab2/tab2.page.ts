@@ -29,7 +29,7 @@ export class Tab2Page {
     this.loginService.login(loginData.email, loginData.password).subscribe({
       next: (data) => {
         console.log('Se logueo')
-        this.router.navigate(['/tabs/tab1'])
+        this.router.navigate(['/tabs/tab3'])
           .then(() => {
             window.location.reload();
           });
@@ -42,6 +42,12 @@ export class Tab2Page {
   }
 
   login() {
+
+  }
+
+  logout(){
+    this.loginService.logout()
+    window.location.reload();
 
   }
 }

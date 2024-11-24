@@ -19,8 +19,20 @@ export class IngresoParcelaService {
             catchError((e) => {
                 console.log(e);
                 throw new Error(e)
-            }),)
-            
+            }),
+        )     
+    }
+    salir(usuarioId: string, parcelaId: string, ingresoId:number) {
+        console.log(usuarioId, parcelaId, ingresoId)
+        const direction = this.url + '/ingresos/salida';
+        console.log(direction)
+        return this.http.post(direction, { usuarioId, parcelaId, ingresoId })
+        .pipe(
+            catchError((e) => {
+                console.log(e);
+                throw new Error(e)
+            }),
+        )     
     }
 
 }

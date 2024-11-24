@@ -81,7 +81,7 @@ export class LoginService {
     /** @description Todas las funciones para borrar las credenciales del usuario al desloguearse */
     logout() {
         this.removeTokenInCookies();
-        this.router.navigate(['login'], { replaceUrl: true });
+        localStorage.setItem('userid', '')
 
     }
 }

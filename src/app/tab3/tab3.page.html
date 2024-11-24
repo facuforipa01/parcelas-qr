@@ -5,7 +5,10 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="transparent-content">
-  <ion-button expand="block" (click)="scanQRCode()">Escanear ahora</ion-button>
+  <ion-button expand="block" (click)="scanQRCode()">ingresar ahora</ion-button>
   <ion-title>hola usuario de id: {{usuario}}</ion-title>
+  <ion-title>ingreso: {{ingreso}}</ion-title>
+  <ion-title>parcela: {{code}}</ion-title>
+  <ion-button expand="block" (click)="scanQRCodeSalida()">salir ahora</ion-button>
 </ion-content>
 

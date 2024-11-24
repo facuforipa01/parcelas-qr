@@ -7,7 +7,7 @@ import { LoginService } from '../services/login.service';
 
 export const jwtInterceptor: HttpInterceptorFn = (req, next) => {
     // Omitir el interceptor si la solicitud es para la ruta de inicio de sesión
-    if (req.url.includes('/login')) {
+    if (req.url.includes('/login')|| req.url.includes("/tabs/tab1")) {
         return next(req); // Deja pasar la request sin modificar
     }
 
