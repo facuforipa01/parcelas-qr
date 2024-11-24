@@ -1,5 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { inject, Injectable } from "@angular/core";
+import { catchError } from "rxjs";
 
 @Injectable({ providedIn: 'root' })
 
@@ -14,14 +15,12 @@ export class IngresoParcelaService {
         const direction = this.url + '/ingresos/entrada';
         console.log(direction)
         return this.http.post(direction, { usuarioId, parcelaId })
-            // .subscribe({
-            //     next: (response) => {
-            //         console.log('Respuesta:', response);
-            //     },
-            //     error: (err) => {
-            //         console.error('Error en la solicitud:', err);
-            //     }
-            // });
+        .pipe(
+            catchError((e) => {
+                console.log(e);
+                throw new Error(e)
+            }),)
+            
     }
 
 }

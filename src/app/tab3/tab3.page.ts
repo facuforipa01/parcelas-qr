@@ -54,9 +54,19 @@ export class Tab3Page {
       next: (response) => {
           console.log('Respuesta del backend:', response);
       },
-      error: (err) => {
-          console.error('Error en la solicitud:', err);
-      }
+      error: (error) => {
+        console.log(error)
+        if (error.statusCode === 404) {
+            console.error('Error: ', error.message); 
+            alert(`Error: ${error.message}`);
+        } else if (error.statusCode === 409) {
+            console.error('Conflicto: ', error.message);
+            alert(`Conflicto: ${error.message}`);
+        } else {
+            console.error('Error desconocido: ', error);
+            alert('Ocurrió un error inesperado');
+        }
+    }
   });
   
   }
