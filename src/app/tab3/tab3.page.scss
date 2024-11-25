@@ -1,0 +1,48 @@
+.content {
+
+    padding: 30px; /* Espaciado interno */
+  }
+  
+  
+  /* Títulos centrados */
+  .centered-title {
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-align: center;
+    color: #271583; /* Violeta medio */
+    margin: 10px 0;
+    padding: 10px;
+    background: linear-gradient(145deg, #c9e3ff, #eaf4ff); /* Fondo degradado azul celeste */
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    margin:10%;
+  }
+  
+  /* Títulos de sección */
+  .section-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-align: center;
+    color: #ffffff; /* Azul más oscuro */
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px; /* Espaciado entre letras */
+    text-shadow: 1px 1px 4px rgba(76, 93, 255, 0.5); /* Sombra sutil */
+  }
+  
+  /* Botón personalizado */
+  ion-button {
+    --background: linear-gradient(145deg, #7a5eff, #4c5dff); /* Degradado violeta a azul */
+    --color: white; /* Texto blanco */
+    --box-shadow: 0 4px 6px rgba(122, 94, 255, 0.3); /* Sombra sutil */
+    border-radius: 8px;
+    margin-top:40%;
+    margin-bottom: 5%;
+    padding:3%;
+    font-weight: 600;
+    margin: 10px 0;
+    padding: 10px;   
+    border-radius: 10px;
+    
+  }
