@@ -12,16 +12,16 @@
           <ion-card-header
             class="ion-justify-content-center ion-align-items-center"
           >
-            <ion-card-title> Inicia sesión! </ion-card-title>
+            <ion-card-title><ion-icon name="person-circle-outline"></ion-icon></ion-card-title>
           </ion-card-header>
           <ion-card-content>
             <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
               <ion-item>
                 <ion-input
-                  label="Nombre"
+                  label="Email"
                   formControlName="email"
                   id="email"
-                  placeholder="Ingrese el usuario"
+                  placeholder="Ingrese el correo"
                 ></ion-input>
               </ion-item>
               <ion-item>
@@ -35,7 +35,7 @@
               </ion-item>
               <ion-button id="open-loading" size="small" type="submit"
                 ><ion-icon name="log-in-outline"></ion-icon>Iniciar
-                sesion</ion-button
+                sesión</ion-button
               >
               <ion-loading
                 trigger="open-loading"
@@ -45,7 +45,7 @@
               ></ion-loading>
               <ion-button expand="block" size="small" (click)="logout()"
                 ><ion-icon name="log-out-outline"></ion-icon>Cerrar
-                sesion</ion-button
+                sesión</ion-button
               >
             </form>
           </ion-card-content>

@@ -4,7 +4,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="transparent-content">
+<ion-content [fullscreen]="true" >
   <ion-button *ngIf="ingreso==0 " expand="block" (click)="scanQRCode()">ingresar ahora</ion-button>
   <ion-title>Tu id de usuario: {{usuario}}</ion-title>
   <ion-title *ngIf="ingreso!=0">Tu id de ingreso: {{ingreso}}</ion-title>

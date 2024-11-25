@@ -1,15 +1,36 @@
-ion-grid{
-    height: 100%;
+
+
+ion-grid {
+  height: 100%;
 }
-ion-row{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
+ion-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+ion-card {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  border-radius: 5%;
+}
+
+ion-card:hover {
+  background: rgba(255, 255, 255, 0.3); /* Más opaco al pasar el mouse */
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+ion-card-header ion-card-title {
+  font-size: 50px;
 }
 
 ion-card-content {
-    padding: 5%;
+  padding: 5%;
 }
 
 ion-item {
@@ -22,8 +43,28 @@ ion-button {
   align-items: center;
   justify-content: center;
   gap: 8px;
+  --background: rgba(255, 255, 255, 0.2); /* Fondo semitransparente del botón */
+  --background-hover: rgba(255, 255, 255, 0.3); /* Fondo al pasar el mouse */
+  --border-color: rgba(255, 255, 255, 0.4); /* Borde claro */
+  --color: #fff; /* Color del texto */
   text-transform: none; /* Elimina el texto en mayúsculas, si prefieres */
   padding: 10px 20px; /* Ajusta el relleno */
+  margin: 0 20%;
+}
+
+ion-button[fill="outline"] {
+  --background: transparent; /* Sin fondo para botones outline */
+  --color: #fff;
+  --border-color: rgba(255, 255, 255, 0.5);
+}
+
+ion-button:hover {
+  transform: scale(1.05); /* Ligeramente más grande */
+  transition: transform 0.2s ease-in-out;
+}
+
+ion-button:active {
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
 }
 
 ion-button ion-icon {
