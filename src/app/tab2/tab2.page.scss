@@ -1,0 +1,32 @@
+ion-grid{
+    height: 100%;
+}
+ion-row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+ion-card-content {
+    padding: 5%;
+}
+
+ion-item {
+  --background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+ion-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-transform: none; /* Elimina el texto en mayúsculas, si prefieres */
+  padding: 10px 20px; /* Ajusta el relleno */
+}
+
+ion-button ion-icon {
+  margin-right: 8px; /* Ajusta el espaciado */
+  font-size: 1.2em; /* Ajusta el tamaño relativo */
+}
