@@ -5,17 +5,15 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  
-  <ion-card *ngFor="let p of parcela">
+  <ion-card *ngFor="let p of parcela" class="centered-card">
     <img alt="Silhouette of mountains" src="../../assets/{{p.imagen}}" />
     <ion-card-header>
       <ion-card-title>{{p.nombre}}</ion-card-title>
       <ion-card-subtitle>${{p.precio}}</ion-card-subtitle>
-    </ion-card-header>
-  
+    </ion-card-header>  
+
     <ion-card-content>
       {{p.descripcion}}
     </ion-card-content>
   </ion-card>
-
 </ion-content>

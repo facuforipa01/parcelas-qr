@@ -1,0 +1,26 @@
+.centered-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .centered-card ion-card-title,
+  .centered-card ion-card-subtitle {
+    text-align: center; /* Centra el texto del título y subtítulo */
+    padding: 0 15px; /* Evita que toque los bordes horizontalmente */
+  }
+  
+  .centered-content {
+    text-align: center; /* Centra el texto dentro del contenido */
+    padding: 15px; /* Espaciado alrededor del contenido */
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho */
+  }
+  
+  .centered-card img {
+    display: block;
+    max-width: 100%; /* Se ajusta al ancho disponible */
+    height: auto; /* Mantiene la proporción */
+    margin: 0 auto; /* Centra horizontalmente la imagen */
+  }
+  
