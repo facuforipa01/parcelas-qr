@@ -17,6 +17,7 @@ export class Tab3Page {
   ubiActual: { lat: number, long: number } | null = null;
   ubiParcela: { lat: number, long: number } | null = null;
   userlong: float = 0;
+  ubicar!: Boolean;
 
   constructor() { }
 
@@ -25,19 +26,37 @@ export class Tab3Page {
   private readonly apiService = inject(apiService)
 
   async scanQRCode() {
+    // Wait for the location to be fetched
+    await this.obtenerUbicacionActual();
+  
     const status = await BarcodeScanner.checkPermission({ force: true });
-
+  
     if (status.granted) {
-      await BarcodeScanner.hideBackground(); // Oculta el fondo de la aplicación para que la cámara sea visible.
-
+      await BarcodeScanner.hideBackground(); // Hide the background for scanning.
+  
       try {
         const result = await BarcodeScanner.startScan();
+  
         if (result.hasContent) {
           this.code = result.content;
-          localStorage.setItem('code', this.code)
+          localStorage.setItem('code', this.code);
           console.log('Scanned content:', result.content);
-          //alert('Scanned QR Code: ' + result.content);
-          this.ingresarParcela()
+  
+          // Process the scanned code
+          this.obtenerUbicacionParcelas(this.code); // Ensure it completes before moving on
+          
+          setTimeout(() => {
+            this.compararUbicaciones(); // Ensure locations comparison completes
+            if (this.ubicar === true) {
+              this.ingresarParcela();
+              alert('Ingresaste a la parcela')
+            } else {
+              alert('Estas muy lejos de la parcela')
+            }
+          }, 900);
+  
+          // Check `this.ubicar` after all async operations
+
         } else {
           alert('No QR code found');
         }
@@ -45,14 +64,16 @@ export class Tab3Page {
         console.log('Error scanning QR code:', err);
         alert('Error scanning QR');
       } finally {
-        await BarcodeScanner.showBackground(); // Restaura el fondo después del escaneo.
+        await BarcodeScanner.showBackground(); // Restore the background after scanning.
       }
     } else {
       alert('Camera permission denied');
     }
   }
+  
 
   async scanQRCodeSalida() {
+    
     const status = await BarcodeScanner.checkPermission({ force: true });
 
     if (status.granted) {
@@ -122,8 +143,8 @@ export class Tab3Page {
       });
   }
 
-  obtenerUbicacionParcelas() {
-    this.apiService.getParcelaById(this.code).subscribe({
+  obtenerUbicacionParcelas(code: string) {
+    this.apiService.getParcelaById(code).subscribe({
       next: (response) => {
         this.ubiParcela = {
           lat: parseFloat(response.result.lat),
@@ -148,8 +169,7 @@ export class Tab3Page {
   }
 
   compararUbicaciones() {
-    this.obtenerUbicacionActual()
-    this.obtenerUbicacionParcelas()
+
     if (
       this.ubiActual?.lat !== undefined &&
       this.ubiParcela?.lat !== undefined &&
@@ -158,10 +178,12 @@ export class Tab3Page {
       Math.abs(this.ubiActual?.lat - this.ubiParcela?.lat) < 0.100 &&
       Math.abs(this.ubiActual?.long - this.ubiParcela?.long) < 0.100
     ) {
-      alert('tas adentro')
+      console.log('aca devuelve true')
+      this.ubicar = true
     }
     else {
-      alert('no estas adentro')
+      console.log('Aca devuelve false')
+      this.ubicar = false
     }
   }
 
