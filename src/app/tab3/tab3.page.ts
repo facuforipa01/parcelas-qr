@@ -4,6 +4,7 @@ import { IngresoParcelaService } from '../core/services/ingreso-parcela.service'
 import { GeolocationService } from '../core/services/geolocation.service';
 import { apiService } from '../api.service';
 import { float } from '@zxing/library/esm/customTypings';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab3',
@@ -19,7 +20,7 @@ export class Tab3Page {
   userlong: float = 0;
   ubicar!: Boolean;
 
-  constructor() { }
+  constructor(private alertController: AlertController) { }
 
   private readonly ingresoParcelaService = inject(IngresoParcelaService)
   private readonly geolocationService = inject(GeolocationService)
@@ -45,32 +46,42 @@ export class Tab3Page {
           // Process the scanned code
           this.obtenerUbicacionParcelas(this.code); // Ensure it completes before moving on
           
-          setTimeout(() => {
+          setTimeout(async () => {
             this.compararUbicaciones(); // Ensure locations comparison completes
             if (this.ubicar === true) {
-              this.ingresarParcela();
-              alert('Ingresaste a la parcela')
+              await this.ingresarParcela();
+              this.presentAlert('Éxito', 'Has ingresado a la parcela correctamente.');
             } else {
-              alert('Estas muy lejos de la parcela')
+              this.presentAlert('Advertencia', 'Estás muy lejos de la parcela.');
             }
           }, 900);
   
           // Check `this.ubicar` after all async operations
 
         } else {
-          alert('No QR code found');
+          this.presentAlert('Error', 'No se encontró ningún código QR.');
         }
       } catch (err) {
         console.log('Error scanning QR code:', err);
-        alert('Error scanning QR');
+        this.presentAlert('Error', 'Hubo un problema al escanear el QR.');
       } finally {
         await BarcodeScanner.showBackground(); // Restore the background after scanning.
       }
     } else {
-      alert('Camera permission denied');
+      this.presentAlert('Permiso Denegado', 'No se otorgó permiso para usar la cámara.');
     }
   }
   
+  // Método para mostrar alertas
+  async presentAlert(header: string, message: string) {
+    const alert = await this.alertController.create({
+      header, // Título de la alerta
+      message, // Mensaje de la alerta
+      buttons: ['OK'], // Botón de cierre
+    });
+
+    await alert.present(); // Muestra la alerta
+  }
 
   async scanQRCodeSalida() {
     
