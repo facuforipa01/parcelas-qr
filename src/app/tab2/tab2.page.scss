@@ -10,29 +10,6 @@ ion-row {
   height: 100%;
 }
 
-ion-card {
-  background: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: #fff;
-  border-radius: 5%;
-}
-
-ion-card:hover {
-  background: rgba(255, 255, 255, 0.3); /* Más opaco al pasar el mouse */
-  border: 1px solid rgba(255, 255, 255, 0.5);
-}
-
-ion-card-header ion-card-title {
-  font-size: 50px;
-}
-
-ion-card-content {
-  padding: 5%;
-}
-
 ion-item {
   --background: rgba(255, 255, 255, 0.1);
   border-radius: 8px;

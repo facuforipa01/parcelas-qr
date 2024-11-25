@@ -37,42 +37,69 @@
 @import "@ionic/angular/css/palettes/dark.system.css";
 
 ion-header ion-title {
-    text-align: center;
+  text-align: center;
 }
 
 ion-content {
-    --background: none; /* Elimina el fondo predeterminado */
-    background: linear-gradient(
-      135deg,
-      #1e3c72,
-      #2a5298,
-      #7b4397,
-      #dc2430
-    ); /* Degradado moderno */
-    background-size: 400% 400%; /* Permite animación fluida */
-    animation: gradient-animation 15s ease infinite; /* Animación suave */
-    position: relative;
+  --background: none; /* Elimina el fondo predeterminado */
+  background: linear-gradient(
+    135deg,
+    #1e3c72,
+    #2a5298,
+    #7b4397,
+    #dc2430
+  ); /* Degradado moderno */
+  background-size: 400% 400%; /* Permite animación fluida */
+  animation: gradient-animation 15s ease infinite; /* Animación suave */
+  position: relative;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
   }
-  
-  @keyframes gradient-animation {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
+  50% {
+    background-position: 100% 50%;
   }
-  
-  ion-content::before {
-    content: ""; /* Capa de superposición */
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.2); /* Ligero oscurecimiento */
-    z-index: -1; /* Coloca detrás del contenido */
+  100% {
+    background-position: 0% 50%;
   }
+}
+
+ion-content::before {
+  content: ""; /* Capa de superposición */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2); /* Ligero oscurecimiento */
+  z-index: -1; /* Coloca detrás del contenido */
+}
+
+ion-card {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  border-radius: 5%;
+}
+
+ion-card:hover {
+  background: rgba(255, 255, 255, 0.3); /* Más opaco al pasar el mouse */
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+ion-card-header ion-card-title {
+  font-size: 50px;
+}
+
+ion-card-content {
+  padding: 5%;
+}
+
+ion-card-subtitle {
+    color: #fff;
+}
