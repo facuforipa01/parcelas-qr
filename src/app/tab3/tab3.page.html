@@ -10,12 +10,12 @@
   <ion-title *ngIf="ingreso!=0" class="centered-title">Estás en la Parcela: {{code}}</ion-title>
 
   <ion-title class="section-title">Usuario Ubicación</ion-title>
-  <ion-title class="centered-title">Coordenadas: {{ubiActual?.lat}}</ion-title>
-  <ion-title class="centered-title">Coordenadas: {{ubiActual?.long}}</ion-title>
+  <ion-title class="centered-title">Latitud:{{ubiActual?.lat}}</ion-title>
+  <ion-title class="centered-title">Longitud: {{ubiActual?.long}}</ion-title>
 
   <ion-title class="section-title">Parcela Ubicación</ion-title>
-  <ion-title class="centered-title">Coordenadas: {{ubiParcela?.lat}}</ion-title>
-  <ion-title class="centered-title">Coordenadas: {{ubiParcela?.long}}</ion-title>
+  <ion-title class="centered-title">Latitud: {{ubiParcela?.lat}}</ion-title>
+  <ion-title class="centered-title">Longitud: {{ubiParcela?.long}}</ion-title>
 
   <ion-button *ngIf="ingreso!=0" expand="block" (click)="scanQRCodeSalida()">Salir ahora</ion-button>
   <ion-button *ngIf="ingreso==0" expand="block" (click)="scanQRCode()">Ingresar ahora</ion-button>
