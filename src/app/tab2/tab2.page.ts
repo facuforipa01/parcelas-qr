@@ -47,7 +47,10 @@ export class Tab2Page {
 
   logout(){
     this.loginService.logout()
-    window.location.reload();
+    this.router.navigate(['/tabs/tab2'])
+          .then(() => {
+            window.location.reload();
+          });
 
   }
 }

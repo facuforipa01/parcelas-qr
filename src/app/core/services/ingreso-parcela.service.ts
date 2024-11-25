@@ -22,7 +22,8 @@ export class IngresoParcelaService {
             }),
         )     
     }
-    salir(usuarioId: string, parcelaId: string, ingresoId:number) {
+    
+    salir(parcelaId: string, usuarioId: string, ingresoId:number) {
         console.log(usuarioId, parcelaId, ingresoId)
         const direction = this.url + '/ingresos/salida';
         console.log(direction)

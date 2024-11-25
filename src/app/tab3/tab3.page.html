@@ -5,10 +5,24 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="transparent-content">
-  <ion-button expand="block" (click)="scanQRCode()">ingresar ahora</ion-button>
-  <ion-title>hola usuario de id: {{usuario}}</ion-title>
-  <ion-title>ingreso: {{ingreso}}</ion-title>
-  <ion-title>parcela: {{code}}</ion-title>
-  <ion-button expand="block" (click)="scanQRCodeSalida()">salir ahora</ion-button>
+  <ion-button *ngIf="ingreso==0 " expand="block" (click)="scanQRCode()">ingresar ahora</ion-button>
+  <ion-title>Tu id de usuario: {{usuario}}</ion-title>
+  <ion-title *ngIf="ingreso!=0">Tu id de ingreso: {{ingreso}}</ion-title>
+  <ion-title *ngIf="ingreso!=0">Estas en la Parcela: {{code}}</ion-title>
+
+  <ion-title>usuario ubi</ion-title>
+  <ion-title>coordenadas: {{ubiActual?.lat}}</ion-title>
+  <ion-title>coordenadas: {{ubiActual?.long}}</ion-title>
+
+  <ion-title>parcela ubi</ion-title>
+  <ion-title>coordenadas: {{ubiParcela?.lat}}</ion-title>
+  <ion-title>coordenadas: {{ubiParcela?.long}}</ion-title>
+
+
+
+  <ion-button *ngIf="ingreso!=0 " expand="block" (click)="scanQRCodeSalida()">salir ahora</ion-button>
+  <ion-button expand="block" (click)="compararUbicaciones()">ubicacion</ion-button>
+
+  
 </ion-content>
 
